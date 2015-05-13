@@ -1,0 +1,17 @@
+/* -----------------------------------------
+   Custom.css - put your own changes here 
+----------------------------------------- */
+.dnt {
+  display: inline-block;
+  width: 75%;
+  color: #a6a6a6;
+  font-style: italic;
+  font-size: 13px;
+}
+
+.traveler-avatar{
+  border-radius: 3px;
+  float: left;
+  margin-right: 15px;
+  width: 64px;
+}

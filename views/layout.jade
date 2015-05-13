@@ -1,0 +1,125 @@
+doctype html
+html.no-js
+  head
+    meta(charset='utf-8')
+    title Welcome to Dynamic website | Dynamic frontend
+    // Mobile specific metas
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1 user-scalable=no')
+    // Force IE9 to render in normal mode
+    //if IE
+      meta(http-equiv='x-ua-compatible', content='IE=9')
+    meta(name='author', content='')
+    meta(name='description', content='')
+    meta(name='keywords', content='')
+    meta(name='application-name', content='')
+    link(href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700', rel='stylesheet', type='text/css')
+    // Css files
+    // Icons
+    link(href='css/icons.css', rel='stylesheet')
+    // Bootstrap stylesheets (included template modifications)
+    link(href='css/bootstrap.css', rel='stylesheet')
+    // Plugins stylesheets (all plugin custom css)
+    link(href='css/plugins.css', rel='stylesheet')
+    // Main stylesheets (template main css file)
+    link(href='css/main.css', rel='stylesheet')
+    // Custom stylesheets ( Put your own changes here )
+    link(href='css/custom.css', rel='stylesheet')
+    // Fav and touch icons
+    link(rel='apple-touch-icon-precomposed', sizes='144x144', href='img/ico/apple-touch-icon-144-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='114x114', href='img/ico/apple-touch-icon-114-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='72x72', href='img/ico/apple-touch-icon-72-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', href='img/ico/apple-touch-icon-57-precomposed.png')
+    link(rel='icon', href='img/ico/favicon.ico', type='image/png')
+    // Windows8 touch icon ( http://www.buildmypinnedsite.com/ )
+    meta(name='msapplication-TileColor', content='#3399cc')
+  body
+    #wrapper
+      // .page-content
+      .page-content
+
+        // .page-content-wrapper
+        .page-content-wrapper
+          .page-content-inner
+            #page-header.clearfix
+              .page-header
+                h2 Shuttle.LY
+                span.txt Make $$$ while you travel
+              .header-stats
+                .spark.clearfix
+                  .spark-info
+                    span.number 2345
+                    | Total trips
+                  #spark-visitors.sparkline
+                //- .spark.clearfix
+                //-   .spark-info
+                //-     span.number 17345
+                //-     | Views
+                //-   #spark-templateviews.sparkline
+                //- .spark.clearfix
+                //-   .spark-info
+                //-     span.number 3700$
+                //-     | Sales
+                //-   #spark-sales.sparkline
+
+            block content
+    #footer
+      p.pull-left
+        | Copyrights &copy; 2015 
+        a.color-blue.strong(href='http://naga.ly', target='_blank') Naga.ly
+        | . All rights reserved.
+      |             
+      p.pull-right
+        a.mr5(href='#') Terms of use
+        |                 |
+        |                 
+        a.ml5.mr25(href='#') Privacy police
+    // End #footer
+    // Back to top
+    #back-to-top
+      a(href='#') Back to Top
+
+          
+    // Load pace first
+    script(src='plugins/core/pace/pace.min.js')
+    // Important javascript libs(put in all pages)
+    script(src='http://code.jquery.com/jquery-2.1.1.min.js')
+    script.
+      window.jQuery || document.write('<script src="js/libs/jquery-2.1.1.min.js">\\x3C/script>')
+    script(src='http://code.jquery.com/ui/1.10.4/jquery-ui.js')
+    script.
+      window.jQuery || document.write('<script src="js/libs/jquery-ui-1.10.4.min.js">\\x3C/script>')
+    //if lt IE 9
+      script(type='text/javascript', src='js/libs/excanvas.min.js')
+      script(type='text/javascript', src='http://html5shim.googlecode.com/svn/trunk/html5.js')
+      script(type='text/javascript', src='js/libs/respond.min.js')
+    // Bootstrap plugins
+    script(src='js/bootstrap/bootstrap.js')
+    // Core plugins ( not remove )
+    script(src='js/libs/modernizr.custom.js')
+    // Handle responsive view functions
+    script(src='js/jRespond.min.js')
+    // Custom scroll for sidebars,tables and etc.
+    script(src='plugins/core/slimscroll/jquery.slimscroll.min.js')
+    script(src='plugins/core/slimscroll/jquery.slimscroll.horizontal.min.js')
+    // Remove click delay in touch
+    script(src='plugins/core/fastclick/fastclick.js')
+    // Increase jquery animation speed
+    script(src='plugins/core/velocity/jquery.velocity.min.js')
+    // Quick search plugin (fast search for many widgets)
+    script(src='plugins/core/quicksearch/jquery.quicksearch.js')
+    // Bootbox fast bootstrap modals
+    script(src='plugins/ui/bootbox/bootbox.js')
+    // Other plugins ( load only nessesary plugins for every page)
+    script(src='plugins/charts/sparklines/jquery.sparkline.js')
+    script(src='plugins/tables/datatables/jquery.dataTables.js')
+    script(src='plugins/tables/datatables/dataTables.tableTools.js')
+    script(src='plugins/tables/datatables/dataTables.bootstrap.js')
+    script(src='plugins/tables/datatables/dataTables.responsive.js')
+    script(src='js/jquery.dynamic.js')
+    script(src='js/main.js')
+    script(src='js/pages/modals.js')
+    script(src='js/pages/tables-data.js')
+
+
+
+

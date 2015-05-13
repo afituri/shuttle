@@ -1,0 +1,11 @@
+
+{
+  "sqlconfig":
+  {
+    "host" : "localhost",
+    "user" : "root",
+    "password" : "dunstuff",
+    "database" : "shuttle"
+  },
+  "epassword": "******"
+}
