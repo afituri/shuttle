@@ -1,0 +1,95 @@
+extends layout
+block content
+   body.login-page
+    // Start login container
+    .container.login-container
+      .login-panel.panel.panel-default.plain.animated.bounceIn
+        // Start .panel
+        .panel-heading
+          h4.panel-title.text-center
+            | Shuttle.LY
+        |                 
+        .panel-body
+          form#login-form.form-horizontal.mt0(action='index.html', role='form')
+            .form-group
+              .col-lg-12
+                .input-group.input-icon
+                  span.input-group-addon
+                    i.fa.fa-envelope
+                  |                                     
+                  input#email.form-control(type='text', name='email', value='admin@dynamic.com', placeholder='Your email ...')
+            |                         
+            .form-group
+              .col-lg-12
+                .input-group.input-icon
+                  span.input-group-addon
+                    i.fa.fa-key
+                  |                                     
+                  input#password.form-control(type='password', name='password', value='somepass', placeholder='Your password')
+                |                                 
+                span.help-block.text-right
+                  a(href='#') Forgout password ?
+            |                         
+            .form-group.mb0
+              .col-lg-6.col-md-6.col-sm-6.col-xs-8
+                .checkbox-custom
+                  input#remember(type='checkbox', name='remember', value='option')
+                  |                                     
+                  label(for='remember') Remember me ?
+              |                             
+              .col-lg-6.col-md-6.col-sm-6.col-xs-4.mb25
+                button.btn.btn-default.pull-right(type='submit') Login
+          |                     
+          .seperator
+            strong or
+            |                         
+            hr
+          |                     
+          .social-buttons.text-center.mt5.mb5
+            a.btn.btn-primary.btn-alt.mr10(href='#')
+              | Sign in with 
+              i.fa.fa-facebook.s20.ml5.mr0
+            |  
+            |                         
+            a.btn.btn-danger.btn-alt.ml10(href='#')
+              | Sign in with 
+              i.fa.fa-google-plus.s20.ml5.mr0
+        |                 
+        .panel-footer.gray-lighter-bg.bt
+          h4.text-center
+            strong Don&grave;t have an account ?
+          |                     
+          p.text-center
+            a.btn.btn-primary(href='/register') Create account
+      // End .panel
+    // End login container
+
+    .container
+      .footer
+        p.text-center &copy;2015 Copyright Naga.LY . All right reserved !!!
+
+    // Javascripts
+    // Important javascript libs(put in all pages)
+    script(src='http://code.jquery.com/jquery-2.1.1.min.js')
+    |         
+    script.
+      window.jQuery || document.write('<script src="assets/js/libs/jquery-2.1.1.min.js">\\x3C/script>')
+    |         
+    script(src='http://code.jquery.com/ui/1.10.4/jquery-ui.js')
+    |         
+    script.
+      window.jQuery || document.write('<script src="assets/js/libs/jquery-ui-1.10.4.min.js">\\x3C/script>')
+    //if lt IE 9
+      script(type='text/javascript', src='js/libs/excanvas.min.js')
+      |   
+      script(type='text/javascript', src='http://html5shim.googlecode.com/svn/trunk/html5.js')
+      |   
+      script(type='text/javascript', src='js/libs/respond.min.js')
+    // Bootstrap plugins
+    script(src='js/bootstrap/bootstrap.js')
+    // Form plugins
+    script(src='plugins/forms/validation/jquery.validate.js')
+    |         
+    script(src='plugins/forms/validation/additional-methods.min.js')
+    // Init plugins olny for this page
+    script(src='js/pages/login.js')

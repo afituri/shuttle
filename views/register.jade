@@ -1,0 +1,82 @@
+extends layout
+block content
+   body.login-page
+    .container.login-container
+      .login-panel.panel.panel-default.plain.animated.bounceIn
+          // Start .panel
+          .panel-heading
+            h2.panel-title.text-center
+              | Shuttle.LY
+          |                 
+          .panel-body
+            form#register-form.form-horizontal.mt0(action='/Register', role='form')
+              .form-group
+                .col-lg-12
+                  .input-group.input-icon
+                    span.input-group-addon
+                      i.fa.fa-user
+                    |                                     
+                    input#username.form-control(type='text', name='username', placeholder='Type your username ...')
+              |   
+              .form-group
+                .col-lg-12
+                  .input-group.input-icon
+                    span.input-group-addon
+                      i.fa.fa-envelope
+                    |                                     
+                    input#email.form-control(type='text', name='email', placeholder='Type your email ...')
+              |                         
+              .form-group
+                .col-lg-12
+                  .input-group.input-icon
+                    span.input-group-addon
+                      i.fa.fa-key
+                    |                                     
+                    input#password.form-control(type='password', name='password', placeholder='Your password')
+                  |                                 
+                  .input-group.input-icon
+                    span.input-group-addon
+                      i.fa.fa-key
+                    |                                     
+                    input#password1.form-control(type='password', name='password1', placeholder='Repeat password')
+              |                         
+              .form-group.mb0
+                .col-md-12
+                  button.btn.btn-default(type='submit') Register
+          |                 
+          .panel-footer.gray-lighter-bg.bt
+            h4.text-center
+              strong Already have an account ?
+            |                     
+            p.text-center
+              a.btn.btn-primary(href='/login') Sign in
+        // End .panel
+    .container
+      .footer
+        p.text-center &copy;2015 Copyright Naga.LY . All right reserved !!!
+
+    // Javascripts
+    // Important javascript libs(put in all pages)
+    script(src='http://code.jquery.com/jquery-2.1.1.min.js')
+    |         
+    script.
+      window.jQuery || document.write('<script src="assets/js/libs/jquery-2.1.1.min.js">\\x3C/script>')
+    |         
+    script(src='http://code.jquery.com/ui/1.10.4/jquery-ui.js')
+    |         
+    script.
+      window.jQuery || document.write('<script src="assets/js/libs/jquery-ui-1.10.4.min.js">\\x3C/script>')
+    //if lt IE 9
+      script(type='text/javascript', src='js/libs/excanvas.min.js')
+      |   
+      script(type='text/javascript', src='http://html5shim.googlecode.com/svn/trunk/html5.js')
+      |   
+      script(type='text/javascript', src='js/libs/respond.min.js')
+    // Bootstrap plugins
+    script(src='js/bootstrap/bootstrap.js')
+    // Form plugins
+    script(src='plugins/forms/validation/jquery.validate.js')
+    |         
+    script(src='plugins/forms/validation/additional-methods.min.js')
+    // Init plugins olny for this page
+    script(src='js/pages/login.js')
