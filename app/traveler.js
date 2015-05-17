@@ -79,8 +79,10 @@ exports.travelerMgr = {
     });
   },
   getTraveler : function(username,cb) {
+    console.log("goter");
     mysqlMgr.connect(function (conn){
-      conn.query('SELECT * FROM `traveler` WHERE (`email`= ?) OR (`username` = ?)',[username,username],function(err,result) {
+      console.log(username);
+      conn.query('SELECT * FROM `traveler` WHERE `email`= ? OR `username` = ?',[username,username],function(err,result) {
         conn.release();
         if(err) {
         util.log(err);
@@ -92,7 +94,7 @@ exports.travelerMgr = {
   },
   getTravelerById : function(id,cb) {
     mysqlMgr.connect(function (conn){
-      conn.query('SELECT * FROM `traveler` WHERE `idtraveler`= ? ',id,function(err,result) {
+      conn.query('SELECT * FROM `traveler` WHERE `idtraveler`= ? ',[id],function(err,result) {
         conn.release();
         if(err) {
         util.log("mysql lib err "+err);

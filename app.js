@@ -1,9 +1,15 @@
 var express = require('express');
+var session = require('express-session');
 var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var passport = require('passport');
+var redis = require("redis"),
+    client = redis.createClient();
+var RedisStore = require('connect-redis')(session);
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -20,6 +26,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({ store: new RedisStore({
+  client: client,
+  host:'127.0.0.1',
+  port:6380,
+  prefix:'sess'
+}), secret: 'SEKR37' }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', routes);
 app.use('/users', users);
