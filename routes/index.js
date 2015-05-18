@@ -5,7 +5,7 @@ var helpers = require('../app/helpers');
 var login = require('../app/login')(router);
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Express',login : true });
 });
 
 router.get('/showing_trips', function(req, res) {
