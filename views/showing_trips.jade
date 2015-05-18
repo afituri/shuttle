@@ -1,63 +1,754 @@
-extends layout
-block content
-
-  .row ldkfbkjldfkj
-
-
-block footer
-
-  script(src='/plugins/core/pace/pace.min.js')
-  // Important javascript libs(put in all pages)
-  script(src='')
-  script.
-    window.jQuery || document.write('<script src="/js/libs/jquery-2.1.1.min.js">\\x3C/script>')
-  script(src='')
-  script.
-    window.jQuery || document.write('<script src="/js/libs/jquery-ui-1.10.4.min.js">\\x3C/script>')
-  //if lt IE 9
-    script(type='text/javascript', src='/js/libs/excanvas.min.js')
-    script(type='text/javascript', src='')
-    script(type='text/javascript', src='/js/libs/respond.min.js')
-  // Bootstrap plugins
-  script(src='/js/bootstrap/bootstrap.js')
-  // Core plugins ( not remove )
-  script(src='/js/libs/modernizr.custom.js')
-  // Handle responsive view functions
-  script(src='/js/jRespond.min.js')
-  // Custom scroll for sidebars,tables and etc.
-  script(src='/plugins/core/slimscroll/jquery.slimscroll.min.js')
-  script(src='/plugins/core/slimscroll/jquery.slimscroll.horizontal.min.js')
-  // Remove click delay in touch
-  script(src='/plugins/core/fastclick/fastclick.js')
-  // Increase jquery animation speed
-  script(src='/plugins/core/velocity/jquery.velocity.min.js')
-  // Quick search plugin (fast search for many widgets)
-  script(src='/plugins/core/quicksearch/jquery.quicksearch.js')
-  // Bootbox fast bootstrap modals
-  script(src='/plugins/ui/bootbox/bootbox.js')
-  // Other plugins ( load only nessesary plugins for every page)
-  script(src='/js/libs/date.js')
-  script(src='/plugins/charts/flot/jquery.flot.custom.js')
-  script(src='/plugins/charts/flot/jquery.flot.pie.js')
-  script(src='/plugins/charts/flot/jquery.flot.resize.js')
-  script(src='/plugins/charts/flot/jquery.flot.time.js')
-  script(src='/plugins/charts/flot/jquery.flot.growraf.js')
-  script(src='/plugins/charts/flot/jquery.flot.categories.js')
-  script(src='/plugins/charts/flot/jquery.flot.stack.js')
-  script(src='/plugins/charts/flot/jquery.flot.orderBars.js')
-  script(src='/plugins/charts/flot/jquery.flot.tooltip.min.js')
-  script(src='/plugins/charts/flot/jquery.flot.curvedLines.js')
-  script(src='/plugins/charts/sparklines/jquery.sparkline.js')
-  script(src='/plugins/charts/progressbars/progressbar.js')
-  script(src='/plugins/ui/waypoint/waypoints.js')
-  script(src='/plugins/ui/weather/skyicons.js')
-  script(src='/plugins/ui/notify/jquery.gritter.js')
-  script(src='/plugins/misc/vectormaps/jquery-jvectormap-1.2.2.min.js')
-  script(src='/plugins/misc/vectormaps/maps/jquery-jvectormap-world-mill-en.js')
-  script(src='/plugins/misc/countTo/jquery.countTo.js')
-  script(src='/js/jquery.dynamic.js')
-  script(src='/js/main.js')
-  script(src='/js/pages/dashboard.js')
-
-
-  
+doctype html
+//if lt IE 8
+  html.no-js.lt-ie8  
+html.no-js
+  head
+    meta(charset='utf-8')
+    title Vector maps | Dynamic Admin Template
+    // Mobile specific metas
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1 user-scalable=no')
+    // Force IE9 to render in normal mode
+    //if IE
+      meta(http-equiv='x-ua-compatible', content='IE=9')
+    meta(name='author', content='')
+    meta(name='description', content='')
+    meta(name='keywords', content='')
+    meta(name='application-name', content='')
+    // Import google fonts - Heading first/ text second
+    link(href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700', rel='stylesheet', type='text/css')
+    // Css files
+    // Icons
+    link(href='css/icons.css', rel='stylesheet')
+    // Bootstrap stylesheets (included template modifications)
+    link(href='css/bootstrap.css', rel='stylesheet')
+    // Plugins stylesheets (all plugin custom css)
+    link(href='css/plugins.css', rel='stylesheet')
+    // Main stylesheets (template main css file)
+    link(href='css/main.css', rel='stylesheet')
+    // Custom stylesheets ( Put your own changes here )
+    link(href='css/custom.css', rel='stylesheet')
+    // Fav and touch icons
+    link(rel='apple-touch-icon-precomposed', sizes='144x144', href='img/ico/apple-touch-icon-144-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='114x114', href='img/ico/apple-touch-icon-114-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='72x72', href='img/ico/apple-touch-icon-72-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', href='img/ico/apple-touch-icon-57-precomposed.png')
+    link(rel='icon', href='img/ico/favicon.ico', type='image/png')
+    // Windows8 touch icon ( http://www.buildmypinnedsite.com/ )
+    meta(name='msapplication-TileColor', content='#3399cc')
+  body
+    //if lt IE 9
+      p.browsehappy
+        | You are using an 
+        strong outdated
+        |  browser. Please 
+        a(href='http://browsehappy.com/') upgrade your browser
+        |  to improve your experience.
+    // .page-navbar
+    #header.page-navbar
+      // .navbar-brand
+      a.navbar-brand.hidden-xs.hidden-sm(href='index.html')
+        img.logo.hidden-xs(src='img/logo.png', alt='Dynamic logo')
+        img.logo-sm.hidden-lg.hidden-md(src='img/logosm.png', alt='Dynamic logo')
+      // / navbar-brand
+      // .no-collapse
+      #navbar-no-collapse.navbar-no-collapse
+        // top left nav
+        ul.nav.navbar-nav
+          li.toggle-sidebar
+            a(href='#')
+              i.fa.fa-reorder
+              span.sr-only Collapse sidebar
+          li
+            a.reset-layout.tipB(href='#', title='Reset panel position for this page')
+              i.fa.fa-history
+        // / top left nav
+        // top right nav
+        ul.nav.navbar-nav.navbar-right
+          li.dropdown
+            a(href='#', data-toggle='dropdown')
+              i.fa.fa-bell-o
+              span.sr-only Notifications
+              span.badge.badge-danger 6
+            ul.dropdown-menu.right.dropdown-notification(role='menu')
+              li
+                a.dropdown-menu-header(href='#') Notifications
+              li
+                a(href='#')
+                  i.l-basic-life-buoy
+                  |  2 support request
+              li
+                a(href='#')
+                  i.l-basic-gear
+                  |  Settings is changed
+              li
+                a(href='#')
+                  i.l-weather-lightning
+                  |  5 min server downtime
+              li
+                a(href='#')
+                  i.l-basic-server2
+                  |  Databse backup is complete
+              li
+                a(href='#')
+                  i.l-basic-lightbulb
+                  |  SuggeElson push 1 commit
+              li
+                a.view-all(href='#')
+                  | View all 
+                  i.l-arrows-right
+          li.dropdown
+            a(href='#', data-toggle='dropdown')
+              i.fa.fa-cog
+              span.sr-only Settings
+            ul.dropdown-menu.dropdown-form.dynamic-settings.right(role='menu')
+              li
+                a.dropdown-menu-header(href='#') Template settings
+              li
+                .toggle-custom
+                  label.toggle(data-on='ON', data-off='OFF')
+                    input#fixed-header-toggle(type='checkbox', name='fixed-header-toggle', checked='')
+                    span.button-checkbox
+                  label(for='fixed-header-toggle') Fixed header
+              li
+                .toggle-custom
+                  label.toggle(data-on='ON', data-off='OFF')
+                    input#fixed-left-sidebar(type='checkbox', name='fixed-left-sidebar', checked='')
+                    span.button-checkbox
+                  label(for='fixed-left-sidebar') Fixed Left Sidebar
+              li
+                .toggle-custom
+                  label.toggle(data-on='ON', data-off='OFF')
+                    input#fixed-right-sidebar(type='checkbox', name='fixed-right-sidebar', checked='')
+                    span.button-checkbox
+                  label(for='fixed-right-sidebar') Fixed Right Sidebar
+          li
+            a(href='login.html')
+              i.fa.fa-power-off
+              span.sr-only Logout
+          li
+            a#toggle-right-sidebar.tipB(href='#', title='Toggle right sidebar')
+              i.l-software-layout-sidebar-right
+              span.sr-only Toggle right sidebar
+        // / top right nav
+      // / collapse
+    // / page-navbar
+    // #wrapper
+    #wrapper
+      // .page-sidebar
+      aside#sidebar.page-sidebar.hidden-md.hidden-sm.hidden-xs
+        // Start .sidebar-inner
+        .sidebar-inner
+          // Start .sidebar-scrollarea
+          .sidebar-scrollarea
+            // .sidebar-panel
+            .sidebar-panel
+              h5.sidebar-panel-title Profile
+            // / .sidebar-panel
+            .user-info.clearfix
+              img(src='img/avatars/128.jpg', alt='avatar')
+              span.name SuggeElson
+              .btn-group
+                button.btn.btn-default.btn-xs(type='button')
+                  i.l-basic-gear
+                button.btn.btn-default.btn-xs.dropdown-toggle(type='button', data-toggle='dropdown')
+                  | settings 
+                  span.caret
+                ul.dropdown-menu.right(role='menu')
+                  li
+                    a(href='profile.html')
+                      i.fa.fa-edit
+                      | Edit profile
+                  li
+                    a(href='#')
+                      i.fa.fa-money
+                      | Windraws
+                  li
+                    a(href='#')
+                      i.fa.fa-credit-card
+                      | Deposits
+                  li.divider
+                  li
+                    a(href='login.html')
+                      i.fa.fa-power-off
+                      | Logout
+            // .sidebar-panel
+            .sidebar-panel
+              h5.sidebar-panel-title Navigation
+            // / .sidebar-panel
+            // .side-nav
+            .side-nav
+              ul.nav
+                li
+                  a(href='index.html')
+                    i.l-basic-laptop
+                    span.txt Dashboard
+                li
+                  a(href='http://themes.suggelab.com/#dynamic_frontend', target='_blank')
+                    i.l-basic-webpage
+                    span.txt Frontend
+                    span.label hot
+                li
+                  a(href='#')
+                    i.l-ecommerce-graph1
+                    span.txt Charts
+                  ul.sub
+                    li
+                      a(href='charts-flot.html')
+                        span.txt Flot charts
+                    li
+                      a(href='charts-morris.html')
+                        span.txt Morris charts
+                    li
+                      a(href='charts-chartjs.html')
+                        span.txt Chartjs 
+                    li
+                      a(href='charts-other.html')
+                        span.txt Other charts
+                li
+                  a(href='#')
+                    i.l-basic-webpage-txt
+                    span.txt Forms
+                  ul.sub
+                    li
+                      a(href='forms-basic.html')
+                        span.txt Basic forms
+                    li
+                      a(href='forms-advanced.html')
+                        span.txt Advanced forms
+                    li
+                      a(href='forms-layouts.html')
+                        span.txt Form layouts
+                    li
+                      a(href='forms-wizard.html')
+                        span.txt Form wizard
+                    li
+                      a(href='forms-validation.html')
+                        span.txt Form validation
+                    li
+                      a(href='code-editor.html')
+                        span.txt Code editor
+                li
+                  a(href='#')
+                    i.l-software-layout-header-3columns
+                    span.txt Tables
+                  ul.sub
+                    li
+                      a(href='tables-basic.html')
+                        span.txt Basic tables
+                    li
+                      a(href='tables-data.html')
+                        span.txt Data tables
+                    li
+                      a(href='tables-editable.html')
+                        span.txt Editable tables
+                    li
+                      a(href='tables-ajax.html')
+                        span.txt Ajax tables
+                    li
+                      a(href='tables-pricing.html')
+                        span.txt Pricing tables
+                li
+                  a(href='#')
+                    i.l-software-layers2
+                    span.txt UI Elements
+                  ul.sub
+                    li
+                      a(href='icons.html')
+                        span.txt Icons
+                    li
+                      a(href='typography.html')
+                        span.txt Typography
+                    li
+                      a(href='tabs.html')
+                        span.txt Tabs
+                    li
+                      a(href='accordions.html')
+                        span.txt Accordions
+                    li
+                      a(href='buttons.html')
+                        span.txt Buttons
+                    li
+                      a(href='notifications.html')
+                        span.txt Notifications
+                    li
+                      a(href='modals.html')
+                        span.txt Modals
+                    li
+                      a(href='sliders.html')
+                        span.txt Sliders
+                    li
+                      a(href='progressbars.html')
+                        span.txt Progressbars
+                    li
+                      a(href='lists.html')
+                        span.txt Lists
+                    li
+                      a(href='grid.html')
+                        span.txt Grid
+                    li
+                      a(href='ui-other.html')
+                        span.txt Other
+                li
+                  a(href='portlets.html')
+                    i.l-software-layout-header
+                    span.txt Portlets
+                    span.label 22
+                li
+                  a(href='#')
+                    i.l-basic-mail
+                    span.txt Email
+                  ul.sub
+                    li
+                      a(href='email-inbox.html')
+                        span.txt Inbox
+                    li
+                      a(href='email-read.html')
+                        span.txt Read email
+                    li
+                      a(href='email-write.html')
+                        span.txt Write email
+                li
+                  a(href='#')
+                    i.l-basic-geolocalize-01
+                    span.txt Maps
+                  ul.sub
+                    li
+                      a(href='maps-google.html')
+                        span.txt Google maps
+                    li
+                      a(href='maps-vector.html')
+                        span.txt Vector maps
+                li
+                  a(href='#')
+                    i.l-basic-webpage
+                    span.txt Pages
+                  ul.sub
+                    li
+                      a(href='login.html')
+                        span.txt Login
+                    li
+                      a(href='lock-screen.html')
+                        span.txt Lock screen
+                    li
+                      a(href='register.html')
+                        span.txt Register
+                    li
+                      a(href='lost-password.html')
+                        span.txt Lost password
+                    li
+                      a(href='profile.html')
+                        span.txt User profile
+                    li
+                      a(href='calendar.html')
+                        span.txt Calendar
+                    li
+                      a(href='timeline.html')
+                        span.txt Timeline
+                    li
+                      a(href='gallery.html')
+                        span.txt Gallery
+                    li
+                      a(href='invoice.html')
+                        span.txt Invoice
+                    li
+                      a(href='blank.html')
+                        span.txt Blank page
+                    li
+                      a(href='#')
+                        span.txt Error pages
+                      ul.sub
+                        li
+                          a(href='403.html')
+                            span.txt 403
+                        li
+                          a(href='404.html')
+                            span.txt 404
+                        li
+                          a(href='500.html')
+                            span.txt 500
+            // / side-nav
+            // .sidebar-panel
+            .sidebar-panel
+              h5.sidebar-panel-title Server stats
+              .sidebar-panel-content
+                .sidebar-stat.mb10
+                  p.color-white.mb5.mt5
+                    i.fa.fa-hdd-o.mr5
+                    |  Disk Space 
+                    span.pull-right.small 30%
+                  .progress.flat.transparent.progress-bar-xs
+                    .progress-bar.progress-bar-white(role='progressbar', aria-valuenow='30', aria-valuemin='0', aria-valuemax='100', style='width: 30%;')
+                  span.dib.s12.mt5.per100.text-center 3001.56 / 10000 MB
+                .sidebar-stat
+                  p.color-white.mb5.mt5
+                    i.glyphicon.glyphicon-transfer.mr5
+                    |  Bandwidth Transfer 
+                    span.pull-right.small 78%
+                  .progress.flat.transparent.progress-bar-xs
+                    .progress-bar.progress-bar-white(role='progressbar', aria-valuenow='78', aria-valuemin='0', aria-valuemax='100', style='width: 78%;')
+                  span.dib.s12.mb10.mt5.per100.text-center 87565.12 / 120000 MB
+          // End .sidebar-scrollarea
+        // End .sidebar-inner
+      // / page-sidebar
+      // Start #right-sidebar
+      aside#right-sidebar.right-sidebar.hidden-md.hidden-sm.hidden-xs
+        // Start .sidebar-inner
+        .sidebar-inner
+          // Start .sidebar-scrollarea
+          .sidebar-scrollarea
+            .tabs
+              // Start .rs tabs
+              ul#rstab.nav.nav-tabs.nav-justified
+                li.active
+                  a(href='#activity', data-toggle='tab')
+                    i.glyphicon.glyphicon-bullhorn
+                li
+                  a(href='#users', data-toggle='tab')
+                    i.fa.fa-comments
+              #rstab-content.tab-content
+                #activity.tab-pane.fade.active.in
+                  ul.timeline.timeline-icons.timeline-sm
+                    li
+                      p
+                        a(href='#') Jonh Doe
+                        |  attached new 
+                        a(href='#') file
+                        span.timeline-icon
+                          i.fa.fa-file-text-o
+                        span.timeline-date Dec 10, 22:00
+                    li
+                      p
+                        a(href='#') Admin
+                        |  approved 
+                        a(href='#') 3 new comments
+                        span.timeline-icon
+                          i.fa.fa-comment
+                        span.timeline-date Dec 8, 13:35
+                    li
+                      p
+                        a(href='#') Jonh Smith
+                        |  deposit 300$
+                        span.timeline-icon
+                          i.fa.fa-money.color-green
+                        span.timeline-date Dec 6, 10:17
+                    li
+                      p
+                        a(href='#') Serena Williams
+                        |  purchase 
+                        a(href='#') 3 items
+                        span.timeline-icon
+                          i.fa.fa-shopping-cart.color-red
+                        span.timeline-date Dec 5, 04:36
+                    li
+                      p
+                        a(href='#') 1 support 
+                        |  request is received from 
+                        a(href='#') Klaudia Chambers
+                        span.timeline-icon
+                          i.fa.fa-life-ring.color-gray-light
+                        span.timeline-date Dec 4, 18:40
+                    li
+                      p
+                        | You received 136 new likes for 
+                        a(href='#') your page
+                        span.timeline-icon
+                          i.glyphicon.glyphicon-thumbs-up
+                        span.timeline-date Dec 4, 12:00
+                    li
+                      p
+                        a(href='#') 12 settings 
+                        |  are changed from 
+                        a(href='#') Master Admin
+                        span.timeline-icon
+                          i.glyphicon.glyphicon-cog
+                        span.timeline-date Dec 3, 23:17
+                    li
+                      p
+                        a(href='#') Klaudia Chambers
+                        |  change your photo
+                        span.timeline-icon
+                          i.l-basic-photo
+                        span.timeline-date Dec 2, 05:17
+                    li
+                      p
+                        a(href='#') Master server 
+                        |  is down for 10 min.
+                        span.timeline-icon
+                          i.l-basic-server2
+                        span.timeline-date Dec 2, 04:56
+                    li
+                      p
+                        a(href='#') 12 links 
+                        |  are broken
+                        span.timeline-icon
+                          i.fa.fa-unlink
+                        span.timeline-date Dec 1, 22:13
+                    li
+                      p
+                        a(href='#') Last backup 
+                        |  is restored by 
+                        a(href='#') Master admin
+                        span.timeline-icon
+                          i.fa.fa-undo.color-red
+                        span.timeline-date Dec 1, 17:42
+                #users.tab-pane.fade
+                  .chat-user-list
+                    form.form-vertical.chat-search(role='form')
+                      .form-group
+                        .input-group
+                          input.form-control.input-sm(type='text', placeholder='Search ...')
+                          span.input-group-btn
+                            button.btn.btn-default.btn-sm(type='submit')
+                              i.fa.fa-search
+                      // End .form-group
+                    ul.user-list.list-group
+                      li.list-group-item.clearfix
+                        a(href='#')
+                          img.avatar(src='img/avatars/2.jpg', alt='avatar')
+                          span.name Dean Huges
+                          span.status.status-online online
+                        .chat-messages
+                          ul
+                            li.chat-back
+                              a(href='#')
+                                | Back 
+                                i.fa.fa-chevron-right.ml5
+                            li
+                              .avatar
+                                img(src='img/avatars/2.jpg', alt='@chadengle')
+                              p.chat-name
+                                | Dean Huges 
+                                span.chat-time 15 sec ago
+                              .message
+                                p.chat-txt We need to meet today. I have some things to show you.
+                            li.chat-me
+                              .avatar
+                                img(src='img/avatars/1.jpg', alt='@jonhdoe')
+                              p.chat-name
+                                | SuggeElson 
+                                span.chat-time 10 sec ago
+                              .message.message-info
+                                p.chat-txt I have tons of work today maybe tomorrow will be fine
+                            li
+                              .avatar
+                                img(src='img/avatars/2.jpg', alt='@chadengle')
+                              p.chat-name
+                                | Dean Huges 
+                                span.chat-time just now
+                              .message
+                                p.chat-txt Okay i will wait..
+                      li.list-group-item.clearfix
+                        a(href='#')
+                          img.avatar(src='img/avatars/4.jpg', alt='avatar')
+                          span.name Selena Jones
+                          span.status.status-offline offline from 1 Dec
+                        .chat-messages
+                          ul
+                            li.chat-back
+                              a(href='#')
+                                | Back 
+                                i.fa.fa-chevron-right.ml5
+                            li.no-messages
+                              p.text-center.color-red No messages are found
+                      li.list-group-item.clearfix
+                        a(href='#')
+                          img.avatar(src='img/avatars/5.jpg', alt='avatar')
+                          span.name Mike Tomas
+                          span.status.status-online online
+                        .chat-messages
+                          ul
+                            li.chat-back
+                              a(href='#')
+                                | Back 
+                                i.fa.fa-chevron-right.ml5
+                            li.no-messages
+                              p.text-center.color-red No messages are found
+                      li.list-group-item.clearfix
+                        a(href='#')
+                          img.avatar(src='img/avatars/6.jpg', alt='avatar')
+                          span.name Jim Kerry
+                          span.status.status-online online
+                        .chat-messages
+                          ul
+                            li.chat-back
+                              a(href='#')
+                                | Back 
+                                i.fa.fa-chevron-right.ml5
+                            li.no-messages
+                              p.text-center.color-red No messages are found
+                      li.list-group-item.clearfix
+                        a(href='#')
+                          img.avatar(src='img/avatars/7.jpg', alt='avatar')
+                          span.name Little Jonh
+                          span.status.status-online online
+                        .chat-messages
+                          ul
+                            li.chat-back
+                              a(href='#')
+                                | Back 
+                                i.fa.fa-chevron-right.ml5
+                            li.no-messages
+                              p.text-center.color-red No messages are found
+                      li.list-group-item.clearfix
+                        a(href='#')
+                          img.avatar(src='img/avatars/8.jpg', alt='avatar')
+                          span.name Keith Smith
+                          span.status.status-online online
+                        .chat-messages
+                          ul
+                            li.chat-back
+                              a(href='#')
+                                | Back 
+                                i.fa.fa-chevron-right.ml5
+                            li.no-messages
+                              p.text-center.color-red No messages are found
+                      li.list-group-item.clearfix
+                        a(href='#')
+                          img.avatar(src='img/avatars/9.jpg', alt='avatar')
+                          span.name Tracy Miller
+                          span.status.status-online online
+                        .chat-messages
+                          ul
+                            li.chat-back
+                              a(href='#')
+                                | Back 
+                                i.fa.fa-chevron-right.ml5
+                            li.no-messages
+                              p.text-center.color-red No messages are found
+                      li.list-group-item.clearfix
+                        a(href='#')
+                          img.avatar(src='img/avatars/10.jpg', alt='avatar')
+                          span.name Peter Petrovski
+                          span.status.status-online online
+                        .chat-messages
+                          ul
+                            li.chat-back
+                              a(href='#')
+                                | Back 
+                                i.fa.fa-chevron-right.ml5
+                            li.no-messages
+                              p.text-center.color-red No messages are found
+                      li.list-group-item.clearfix
+                        a(href='#')
+                          img.avatar(src='img/avatars/11.jpg', alt='avatar')
+                          span.name Kim Lee
+                          span.status.status-online online
+                        .chat-messages
+                          ul
+                            li.chat-back
+                              a(href='#')
+                                | Back 
+                                i.fa.fa-chevron-right.ml5
+                            li.no-messages
+                              p.text-center.color-red No messages are found
+                    #chat-write
+                      form#chat-write-form.form-vertical(role='form')
+                        .form-group.mb5
+                          textarea#chatwritearea.form-control(name='writetext', rows='3', placeholder='Type message ...')
+                        // End .form-group
+                        .form-group.mb0
+                          a.btn.btn-link.btn-sm.p0.mr5.color-gray(href='#')
+                            i.fa.fa-picture-o
+                          a.btn.btn-link.btn-sm.p0.color-gray(href='#')
+                            i.fa.fa-file
+                          a.btn.btn-default.btn-sm.pull-right(href='#') Send
+                        // End .form-group
+            // End .rs tabs
+          // End .sidebar-scrollarea
+        // End .sidebar-inner
+      // End #right-sidebar
+      // .page-content
+      .page-content.sidebar-page.right-sidebar-page.clearfix
+        // .page-content-wrapper
+        .page-content-wrapper
+          .page-content-inner
+            // Start .page-content-inner
+            #page-header.clearfix
+              .page-header
+                h2 Vector maps
+                span.txt Interactive maps
+              .header-stats
+                .spark.clearfix
+                  .spark-info
+                    span.number 2345
+                    | Visitors
+                  #spark-visitors.sparkline
+                .spark.clearfix
+                  .spark-info
+                    span.number 17345
+                    | Views
+                  #spark-templateviews.sparkline
+                .spark.clearfix
+                  .spark-info
+                    span.number 3700$
+                    | Sales
+                  #spark-sales.sparkline
+            // Start .row
+            .row
+              .col-lg-12
+                // col-lg-12 start here
+                .panel.panel-default.plain.toggle.panelMove.panelClose.panelRefresh.mb0
+                  // Start .panel
+                  .panel-heading
+                    h4.panel-title World map
+                  .panel-body
+                    #world-map-markers(style='width: 100%; height: 470px')
+                // End .panel
+              // col-lg-12 end here
+            // End .row
+          // End .page-content-inner
+        // / page-content-wrapper
+      // / page-content
+    // / #wrapper
+    #footer.clearfix.sidebar-page.right-sidebar-page
+      // Start #footer
+      p.pull-left
+        | Copyrights © 2014 
+        a.color-blue.strong(href='http://suggeelson.com/', target='_blank') SuggeElson
+        | . All rights reserved.
+      p.pull-right
+        a.mr5(href='#') Terms of use
+        |                 |
+        a.ml5.mr25(href='#') Privacy police
+    // End #footer
+    // Back to top
+    #back-to-top
+      a(href='#') Back to Top
+    // Javascripts
+    // Load pace first
+    script(src='plugins/core/pace/pace.min.js')
+    // Important javascript libs(put in all pages)
+    script(src='http://code.jquery.com/jquery-2.1.1.min.js')
+    script.
+      window.jQuery || document.write('<script src="js/libs/jquery-2.1.1.min.js">\\x3C/script>')
+    script(src='http://code.jquery.com/ui/1.10.4/jquery-ui.js')
+    script.
+      window.jQuery || document.write('<script src="js/libs/jquery-ui-1.10.4.min.js">\\x3C/script>')
+    //if lt IE 9
+      script(type='text/javascript', src='js/libs/excanvas.min.js')
+      script(type='text/javascript', src='http://html5shim.googlecode.com/svn/trunk/html5.js')
+      script(type='text/javascript', src='js/libs/respond.min.js')
+    // Bootstrap plugins
+    script(src='js/bootstrap/bootstrap.js')
+    // Core plugins ( not remove )
+    script(src='js/libs/modernizr.custom.js')
+    // Handle responsive view functions
+    script(src='js/jRespond.min.js')
+    // Custom scroll for sidebars,tables and etc.
+    script(src='plugins/core/slimscroll/jquery.slimscroll.min.js')
+    script(src='plugins/core/slimscroll/jquery.slimscroll.horizontal.min.js')
+    // Remove click delay in touch
+    script(src='plugins/core/fastclick/fastclick.js')
+    // Increase jquery animation speed
+    script(src='plugins/core/velocity/jquery.velocity.min.js')
+    // Quick search plugin (fast search for many widgets)
+    script(src='plugins/core/quicksearch/jquery.quicksearch.js')
+    // Bootbox fast bootstrap modals
+    script(src='plugins/ui/bootbox/bootbox.js')
+    // Other plugins ( load only nessesary plugins for every page)
+    script(src='plugins/charts/sparklines/jquery.sparkline.js')
+    script(src='plugins/misc/vectormaps/jquery-jvectormap-1.2.2.min.js')
+    script(src='plugins/misc/vectormaps/maps/jquery-jvectormap-world-mill-en.js')
+    script(src='js/jquery.dynamic.js')
+    script(src='js/main.js')
+    script(src='js/pages/maps-vector.js')
