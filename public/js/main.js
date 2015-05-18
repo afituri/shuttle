@@ -106,7 +106,7 @@ $(document).ready(function() {
     //------------- Bootstrap popovers -------------//
     $("[data-toggle=popover]").popover ();
 
-    $('body').data('dynamic').hideLeftSidebar();
+    // $('body').data('dynamic').hideLeftSidebar();
     $('body').data('dynamic').hideRightSidebar();
     //get plugin object 
     var adminObj = $('body').data('dynamic');
