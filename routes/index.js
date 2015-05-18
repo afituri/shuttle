@@ -7,6 +7,10 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/world', function(req, res) {
+  res.render('world', { title: 'Express' });
+});
+
 /* GET register page. */
 router.get('/register', function(req, res) {
   res.render('register', { title: 'Express' });
