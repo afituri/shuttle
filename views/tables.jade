@@ -1,0 +1,206 @@
+.row
+  // .row start
+  .col-lg-6.col-md-6
+    // col-md-6 start here
+    h1 Tripoli
+  // col-md-6 end here
+  .col-lg-6.col-md-6.text-right
+    // col-md-6 start here
+    ul.breadcrumb
+      li
+        a(href='index.html') WorldWide
+      li
+        a(href='#') Libya
+      li.active Tripoli
+  // col-md-6 end here
+// / .row
+.row
+  // Start .row
+  .col-lg-6.col-md-6
+    // col-lg-6 start here
+    #dyn_2.panel.panel-default.plain.toggle.panelClose.panelRefresh
+      // Start .panel
+      .panel-heading.white-bg
+        h4.panel-title From Tripoli
+        .panel-controls.panel-controls-right
+          a.panel-refresh(href='#')
+            i.fa.fa-circle-o
+          a.toggle.panel-minimize(href='#')
+            i.fa.fa-angle-up
+          a.panel-close(href='#')
+            i.fa.fa-times
+      .panel-body
+
+        .slimScrollDiv(style='position: relative; overflow: hidden; width: 100%; height: auto;')
+          .table-responsive(style='overflow: hidden; width: 100%; height: auto;')
+            table.table.table-hover.text-center(style="cursor: pointer;")
+              thead
+                tr.text-center
+                  th.text-center From
+                  th.text-center Via
+                  th.text-center Service
+                  th.text-center To
+              tbody
+                tr(data-toggle='modal', data-target='#mySmallModal')
+                  td 
+                    | Tripoli-Libya
+                    br
+                    span.dnt Dec 10, 22:00
+                  td 
+                    i.fa.fa-plane
+                  td
+                    i.fa.fa-briefcase
+                  td
+                    | Tunis-Tunisia
+                    br
+                    span.dnt Dec 11, 22:00
+                tr
+                  td 
+                    | Tripoli-Libya
+                    br
+                    span.dnt Dec 13, 20:00
+                  td 
+                    i.fa.fa-car
+                  td
+                    i.fa.fa-briefcase 
+                    br
+                    i.fa.fa-group 
+                  td 
+                    | Benghazi-Libya
+                    br
+                    span.dnt Dec 10, 22:00
+                tr
+                  td 
+                    | Tripoli-Libya
+                    br
+                    span.dnt Dec 10, 22:00
+                  td 
+                    i.fa.fa-plane
+                  td
+                    i.fa.fa-briefcase
+                  td 
+                    | Cairo-Egypt
+                    br
+                    span.dnt Dec 11, 22:00
+                tr
+                  td 
+                    | Tripoli-Libya
+                    br
+                    span.dnt Dec 10, 22:00
+                  td 
+                    i.fa.fa-car
+                  td
+                    i.fa.fa-briefcase
+                  td 
+                    | Sebha-Libya
+                    br
+                    span.dnt Dec 10, 22:00
+          .slimScrollBar.ui-draggable(style='height: 3px; position: absolute; bottom: 3px; opacity: 0.4; display: none; border-radius: 3px; z-index: 99; width: 543px; left: 0px; background: rgb(255, 255, 255);')
+          .slimScrollRail(style='width: 100%; height: 3px; position: absolute; bottom: 3px; display: none; border-radius: 3px; opacity: 1; z-index: 90; background: rgb(51, 51, 51);')
+    // End .panel
+  // col-lg-6 end here
+  .col-lg-6.col-md-6
+    // col-lg-6 start here
+    #dyn_2.panel.panel-default.plain.toggle.panelClose.panelRefresh
+      // Start .panel
+      .panel-heading.white-bg
+        h4.panel-title Hover table
+        .panel-controls.panel-controls-right
+          a.panel-refresh(href='#')
+            i.fa.fa-circle-o
+          a.toggle.panel-minimize(href='#')
+            i.fa.fa-angle-up
+          a.panel-close(href='#')
+            i.fa.fa-times
+      .panel-body
+        .slimScrollDiv(style='position: relative; overflow: hidden; width: 100%; height: auto;')
+          .table-responsive(style='overflow: hidden; width: 100%; height: auto;')
+            table.table.table-hover
+              thead
+                tr
+                  th.per5
+                    | #
+                  th.per40 Employe
+                  th.per40 Position
+                  th.per15 Salary
+              tbody
+                tr
+                  td
+                    | 1
+                  td Jacob Olsen
+                  td Developer
+                  td 2530$
+                tr
+                  td
+                    | 2
+                  td Lara James
+                  td SEO
+                  td 3700$
+                tr
+                  td
+                    | 3
+                  td Steve Sidwell
+                  td Photographer
+                  td 1340$
+                tr
+                  td
+                    | 4
+                  td Elena Dobrev
+                  td Project manger
+                  td 5600$
+          .slimScrollBar.ui-draggable(style='height: 3px; position: absolute; bottom: 3px; opacity: 0.4; display: none; border-radius: 3px; z-index: 99; width: 543px; left: 0px; background: rgb(255, 255, 255);')
+          .slimScrollRail(style='width: 100%; height: 3px; position: absolute; bottom: 3px; display: none; border-radius: 3px; opacity: 1; z-index: 90; background: rgb(51, 51, 51);')
+  // End .panel
+// col-lg-6 end here
+#mySmallModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+  .modal-dialog.modal-sm
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal')
+          span(aria-hidden='true') ×
+          span.sr-only Close
+        h4#mySmallModalLabel.modal-title Trip details
+      .modal-body
+        ul.timeline.timeline-icons.timeline-advanced
+          li
+            span.timeline-icon
+              i.fa.fa-female
+            |                                                 
+            .timeline-user
+              img.traveler-avatar.avatar(src='img/avatars/4.jpg', alt='timeline avatar')
+              |                                                     
+              p.timeline-user-name Reneta Stone
+              |                                                     
+              p.timeline-user-subtitle 
+                i.fa.fa-star
+                i.fa.fa-star
+          li
+            h4.timeline-title Tripoli-Libya
+            |                                                 
+            span.timeline-icon
+              i.fa.fa-flag
+            .timeline-content
+              p Dec 08, 17:00 pm                                                 
+            span.timeline-date Dec 08, 17:00 pm
+          li
+            h4.timeline-title Flying 
+            |                                                 
+            span.timeline-icon
+              i.fa.fa-plane
+            | 
+            .timeline-content
+              p Tripoli-Libya
+          li
+            h4.timeline-title Tunis-Tunisia
+            |                                                 
+            span.timeline-icon
+              i.fa.fa-flag-checkered
+            .timeline-content
+              p Dec 09, 17:00 pm                                                 
+            span.timeline-date Dec 09, 17:00 pm
+
+
+
+      .modal-footer
+        button.btn.btn-default(type='button', data-dismiss='modal') Close
+        button.btn.btn-primary(type='button') Save changes
