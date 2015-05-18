@@ -8,8 +8,8 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/world', function(req, res) {
-  res.render('world', { title: 'Express' });
+router.get('/showing_trips', function(req, res) {
+  res.render('showing_trips', { title: 'Express' });
 });
 
 /* GET register page. */
