@@ -10,14 +10,14 @@ block content
             | Shuttle.LY
         |                 
         .panel-body
-          form#login-form.form-horizontal.mt0(action='index.html', role='form')
+          form#login-form.form-horizontal.mt0(action='/login', role='form', method='post')
             .form-group
               .col-lg-12
                 .input-group.input-icon
                   span.input-group-addon
                     i.fa.fa-envelope
                   |                                     
-                  input#email.form-control(type='text', name='email', value='admin@dynamic.com', placeholder='Your email ...')
+                  input#email.form-control(type='text', name='username', value='email@domain.com || username', placeholder='Your email/username ...')
             |                         
             .form-group
               .col-lg-12

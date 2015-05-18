@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var travelerMgr = require('../app/traveler').travelerMgr;
 var helpers = require('../app/helpers');
+var login = require('../app/login')(router);
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });

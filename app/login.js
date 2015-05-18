@@ -22,7 +22,7 @@ passport.use(new LocalStrategy(
 ));
 //read the passport api docs if you wanna know what this does
 passport.serializeUser(function(user, done) {
-  done(null, user.iduser);
+  done(null, user.idtraveler);
 });
 //read the passport api docs if you wanna know what this does
 passport.deserializeUser(function(id, done) {
@@ -34,12 +34,14 @@ passport.deserializeUser(function(id, done) {
 module.exports = function (router) {
   //login here we get the email and password and check if they're conrrect
   router.post('/login', passport.authenticate('local', { failureRedirect: '/login' }), function(req, res) {
-    findById(req.session.passport.traveler, function (err, traveler) {
+    findById(req.session.passport.user, function (err, traveler) {
+      console.log(traveler);
       req.session.email=traveler.email;
       req.session.iduser=traveler.idtraveler;
       req.session.stat=traveler.stat;
       req.session.username=traveler.username;
       req.session.gender=traveler.gender;
+      res.redirect('/traveler');
     });
   });
   // here if a user wants to logout of the app
@@ -81,7 +83,7 @@ function findById(id, fn) {
   });
 }
 function findByEmail(username, fn) {
-  travelerMgr.getTravelerByEmail(username, function(user){
+  travelerMgr.getTraveler(username, function(user){
     if(user) {
       return fn(null, user);
     } else {
