@@ -26,8 +26,6 @@ block content
   script(src='/js/main.js')
   script().
     $(document).ready(function() {
-
-
       $('#spark-visitors').sparkline([5,8,10,8,7,12,11,6,13,8,5,8,10,11,7,12,11,6,13,8], {
       type: 'bar',
       width: '100%',
@@ -35,6 +33,13 @@ block content
       barColor: '#dfe2e7',
       zeroAxis: false,
     });
+
+       $('body').on('click','.jvectormap-marker', function () {
+        window.location.href='/city'; 
+      
+
+      });
+
 
     $('#spark-templateviews').sparkline([12,11,6,13,8,5,8,10,12,11,6,13,8,5,8,10,12,11,6,13,8,5,8], {
       type: 'bar',
@@ -59,6 +64,7 @@ block content
         normalizeFunction: 'polynomial',
         hoverOpacity: 0.7,
         hoverColor: false,
+
       focusOn:{
         x: 0.5,
         y: 0.5,
@@ -87,9 +93,11 @@ block content
           fill: 'yellow'
         }
       },
+
         markers: 
          !{JSON.stringify(c)}   
       });
+
   
      
       });
