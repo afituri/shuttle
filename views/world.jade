@@ -34,8 +34,8 @@ block content
       zeroAxis: false,
     });
 
-       $('body').on('click','.jvectormap-marker', function () {
-        window.location.href='/city'; 
+       $('body').on('click','.jvectormap-marker', function (req) {
+       // window.location.href='/city'; 
       
 
       });
@@ -75,6 +75,7 @@ block content
           initial: {
             fill: '#df6a78',
             stroke: '#df6a78'
+
           }
         },
         backgroundColor: '#fff',
@@ -95,7 +96,13 @@ block content
       },
 
         markers: 
-         !{JSON.stringify(c)}   
+         !{JSON.stringify(c)},   
+
+
+         onMarkerClick: function(events, label, index,weburl) {
+         window.location.href='/city'+label;
+          }
+      
       });
 
   

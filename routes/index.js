@@ -21,8 +21,9 @@ router.get('/world', function(req, res) {
   res.render('world', { title: 'Express',c:obj});
 });
 
-router.get('/city', function(req, res) {
-  res.render('city', { title: 'Express',login : true });
+router.get('/city:id', function(req, res) {
+ // console.log(req.params.id);
+  res.render('city', { title: 'Express',login : false });
 });
 
 /* GET register page. */

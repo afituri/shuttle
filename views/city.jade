@@ -1,6 +1,8 @@
 extends layout
 block content
   #wrapper
+    if login
+      include sidebar
     // .page-content
     .page-content
       // .page-content-wrapper
@@ -16,6 +18,111 @@ block content
                   span.number 2345
                   | Total trips
                 #spark-visitors.sparkline
-         
+          .row
+                    .col-lg-12
+                      // col-lg-12 start here
+                      #dyn_0.panel.panel-default.toggle.panelMove.panelClose.panelRefresh
+                        // Start .panel
+                        .panel-heading
+                          h4.panel-title Tripoli Trips 
+                          .panel-controls.panel-controls-right
+                            a.panel-refresh(href='#')
+                              i.fa.fa-circle-o
+                            a.toggle.panel-minimize(href='#')
+                              i.fa.fa-angle-up
+                            a.panel-close(href='#')
+                              i.fa.fa-times
+                        .panel-body
+                          .slimScrollDiv(style='position: relative; overflow: hidden; width: 100%; height: auto;')
+                            .table-responsive(style='overflow: hidden; width: 100%; height: auto;')
+                              #table-ajax-defer_wrapper.dataTables_wrapper.form-inline
+                                .row
+                                  .col-md-6.col-xs-12
+                                    #table-ajax-defer_length.dataTables_length
+                                      label
+                                        span
+                                          select.form-control.input-sm(aria-controls='table-ajax-defer', name='table-ajax-defer_length')
+                                            option(value='10') 10
+                                            option(value='25') 25
+                                            option(value='50') 50
+                                            option(value='100') 100
+                                  .col-md-6.col-xs-12
+                                    #table-ajax-defer_filter.dataTables_filter
+                                      label
+                                        input.form-control.input-sm(aria-controls='table-ajax-defer', placeholder='', type='search')
+                                table#table-ajax-defer.table.table-striped.table-bordered.dataTable(style='width: 100%;', aria-describedby='table-ajax-defer_info', role='grid', cellspacing='0', width='100%')
+                                  thead
+                                    tr(role='row')
+                                      th.sorting(aria-label='Name: activate to sort column ascending', style='width: 179px;', colspan='1', rowspan='1', aria-controls='table-ajax-defer', tabindex='0') User Name
+                                      th.sorting(aria-label='Position: activate to sort column ascending', style='width: 270px;', colspan='1', rowspan='1', aria-controls='table-ajax-defer', tabindex='0') From
+                                      th.sorting_desc(aria-sort='descending', aria-label='Office: activate to sort column ascending', style='width: 139px;', colspan='1', rowspan='1', aria-controls='table-ajax-defer', tabindex='0') To
+                                      th.sorting(aria-label='Extn.: activate to sort column ascending', style='width: 80px;', colspan='1', rowspan='1', aria-controls='table-ajax-defer', tabindex='0') Time.
+                                      th.sorting(aria-label='Start date: activate to sort column ascending', style='width: 125px;', colspan='1', rowspan='1', aria-controls='table-ajax-defer', tabindex='0') Start date
+                                      th.sorting(aria-label='Salary: activate to sort column ascending', style='width: 115px;', colspan='1', rowspan='1', aria-controls='table-ajax-defer', tabindex='0') Details
+                                  tfoot
+                                    tr
+                                      th(colspan='1', rowspan='1') User Name
+                                      th(colspan='1', rowspan='1') From
+                                      th(colspan='1', rowspan='1') To
+                                      th(colspan='1', rowspan='1') Time.
+                                      th(colspan='1', rowspan='1') Start date
+                                      th(colspan='1', rowspan='1') Details
+                                  tbody
+                                    tr.odd(role='row')
+                                      td Abdullah
+                                      td Tripoli
+                                      td.sorting_1 Tokyo
+                                      td 12:30
+                                      td 2008/11/28
+                                      td.text-center
+                                        button.btn.btn-sm.btn-warning(type='button', data-toggle='tooltip', data-original-title='Edit this user')
+                                          i.glyphicon.glyphicon-plane
+                                    
+                                    tr.odd(role='row')
+                                      td Ahmeed
+                                      td italya
+                                      td.sorting_1 Tripoli
+                                      td 5:30
+                                      td 2008/3/28
+                                      td.text-center
+                                        button.btn.btn-sm.btn-warning(type='button', data-toggle='tooltip', data-original-title='Edit this user')
+                                          i.glyphicon.glyphicon-plane
+
+                                    tr.odd(role='row')
+                                      td Abdullah
+                                      td Tripoli
+                                      td.sorting_1 Tunis
+                                      td 3:45
+                                      td 2008/11/28
+                                      td.text-center
+                                        button.btn.btn-sm.btn-warning(type='button', data-toggle='tooltip', data-original-title='Edit this user')
+                                          i.glyphicon.glyphicon-plane
+
+                                       
+                            
+                                 
+                                   
+                                .row
+                                  .col-md-4.col-xs-12
+                                    #table-ajax-defer_info.dataTables_info(aria-live='polite', role='status') Showing 1 to 10 of 57 entries
+                                  .col-md-8.col-xs-12
+                                    #table-ajax-defer_paginate.dataTables_paginate.paging_bootstrap
+                                      ul.pagination
+                                        li.prev.disabled
+                                          a(href='#') ← Previous
+                                        li.active
+                                          a(href='#') 1
+                                        li
+                                          a(href='#') 2
+                                        li
+                                          a(href='#') 3
+                                        li
+                                          a(href='#') 4
+                                        li
+                                          a(href='#') 5
+                                        li.next
+                                          a(href='#') Next → 
+                            .slimScrollBar.ui-draggable(style='background: none repeat scroll 0% 0% rgb(255, 255, 255); height: 3px; position: absolute; bottom: 3px; opacity: 0.4; display: none; border-radius: 3px; z-index: 99; width: 1000px; left: 0px;')
+                            .slimScrollRail(style='width: 100%; height: 3px; position: absolute; bottom: 3px; display: none; border-radius: 3px; background: none repeat scroll 0% 0% rgb(51, 51, 51); opacity: 1; z-index: 90;')  
   include inc/footer
   include inc/scripts
