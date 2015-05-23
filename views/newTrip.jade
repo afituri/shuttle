@@ -1,0 +1,39 @@
+extends layout
+block content
+  #wrapper
+    include sidebar
+    // .page-content
+    .page-content
+      // .page-content-wrapper
+      .page-content-wrapper
+        .page-content-inner
+          #page-header.clearfix
+            .page-header
+              h2 Shuttle.LY
+              span.txt Make $$$ while you travel
+            .header-stats
+              .spark.clearfix
+                .spark-info
+                  span.number 2345
+                  | Total trips
+                #spark-visitors.sparkline
+          include tripForm.jade
+  include inc/footer
+  include inc/scripts
+  script(src='plugins/forms/fancyselect/fancySelect.js')
+  script(src='plugins/forms/select2/select2.js')
+  script(src='plugins/forms/maskedinput/jquery.maskedinput.js')
+  script(src='plugins/forms/dual-list-box/jquery.bootstrap-duallistbox.js')
+  script(src='plugins/forms/bootstrap-datepicker/bootstrap-datepicker.js')
+  script(src='plugins/forms/bootstrap-timepicker/bootstrap-timepicker.js')
+  script(src='plugins/forms/bootstrap-wizard/jquery.bootstrap.wizard.js')
+  script(src='plugins/forms/validation/jquery.validate.js')
+  script(src='plugins/forms/validation/additional-methods.min.js')
+  //script(src='js/libs/typeahead.bundle.js')
+  script(src='plugins/forms/bootstrap-markdown/bootstrap-markdown.js')
+  script(src='js/jquery.dynamic.js')
+  script(src='js/main.js')  
+  script(src='js/typeahead.min.js')
+  script(src='js/pages/forms-wizard.js')
+  script(src='js/pages/forms-advanced.js')
+

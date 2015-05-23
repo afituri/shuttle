@@ -21,5 +21,16 @@ block content
           include tables.jade
   include inc/footer
   include inc/scripts
+  script(src='plugins/tables/datatables/jquery.dataTables.js')
+  script(src='plugins/tables/datatables/dataTables.tableTools.js')
+  script(src='plugins/tables/datatables/dataTables.bootstrap.js')
+  script(src='plugins/tables/datatables/dataTables.responsive.js')
+  script(src='js/jquery.dynamic.js')
+  script(src='js/main.js')
   script(src='js/pages/modals.js')
   script(src='js/pages/tables-data.js')
+  unless login
+    script.
+      $(document).ready(function() {
+        $('body').data('dynamic').hideLeftSidebar();
+      });

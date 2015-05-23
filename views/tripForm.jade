@@ -1,0 +1,230 @@
+.row
+  .col-lg-6.col-md-12
+    // col-lg-6 start here
+    #dyn_1.panel.panel-default.toggle.panelMove.panelClose.panelRefresh
+      // Start .panel
+      .panel-heading
+        h4.panel-title
+          i.fa.fa-magic
+          |  Form wizard with progressbar
+        |                                     
+        .panel-controls.panel-controls-right
+          a.panel-refresh(href='#')
+            i.fa.fa-circle-o
+          a.toggle.panel-minimize(href='#')
+            i.fa.fa-angle-up
+          a.panel-close(href='#')
+            i.fa.fa-times
+      |                                     
+      .panel-body.pt0.pb0
+        #wizard1.bwizard
+          // Start .bwizard
+          ul.bwizard-steps
+            li.completed.active
+              a(href='#tab4', data-toggle='tab', aria-expanded='true')
+                span.step-number 1
+                |                                                         
+                span.step-text Personal Info
+            |                                                 
+            li
+              a(href='#tab5', data-toggle='tab', aria-expanded='false')
+                span.step-number 2
+                |                                                         
+                span.step-text Contact Info
+            |                                                 
+            li
+              a(href='#tab6', data-toggle='tab', aria-expanded='false')
+                span.step-number 3
+                |                                                         
+                span.step-text Account Info
+          |                                             
+          .wizard-progress
+            #bar.progress
+              .progress-bar(style='width: 33.3333333333333%;')
+          |                                             
+          form.form-horizontal(role='form')
+            .tab-content
+              #tab4.tab-pane.active
+                .form-group
+                  label.col-lg-2.col-md-2.control-label From City
+                  |  
+                  .col-lg-10
+                    .row
+                      // Start .row
+                      .col-lg-4.col-md-4.col-sm-4.col-xs-10
+                        .input-group
+                          input.typeahead.tt-query.form-control.input-rounded(type='text', name='typeahead', autocomplete='off', spellcheck='false')
+
+
+                          //- optgroup(label='Alaskan/Hawaiian Time Zone')
+                          //-   option(value='AK') Alaska
+                          //-   |                                                             
+                          //-   option(value='HI') Hawaii
+                          //- |                                                         
+                          //- optgroup(label='Pacific Time Zone')
+                          //-   option(value='CA') California
+                          //-   |                                                             
+                          //-   option(value='NV') Nevada
+                          //-   |                                                             
+                          //-   option(value='OR') Oregon
+                          //-   |                                                             
+                          //-   option(value='WA') Washington
+                          //- |                                                         
+                          //- optgroup(label='Mountain Time Zone')
+                          //-   option(value='AZ') Arizona
+                          //-   |                                                             
+                          //-   option(value='CO') Colorado
+                          //-   |                                                             
+                          //-   option(value='ID') Idaho
+                          //-   |                                                             
+                          //-   option(value='MT') Montana
+                          //-   |                                                             
+                          //-   option(value='NE') Nebraska
+                          //-   |                                                             
+                          //-   option(value='NM') New Mexico
+                          //-   |                                                             
+                          //-   option(value='ND') North Dakota
+                          //-   |                                                             
+                          //-   option(value='UT') Utah
+                          //-   |                                                             
+                          //-   option(value='WY') Wyoming
+                          //- |                                                         
+                          //- optgroup(label='Central Time Zone')
+                          //-   option(value='AL') Alabama
+                          //-   |                                                             
+                          //-   option(value='AR') Arkansas
+                          //-   |                                                             
+                          //-   option(value='IL') Illinois
+                          //-   |                                                             
+                          //-   option(value='IA') Iowa
+                          //-   |                                                             
+                          //-   option(value='KS') Kansas
+                          //-   |                                                             
+                          //-   option(value='KY') Kentucky
+                          //-   |                                                             
+                          //-   option(value='LA') Louisiana
+                          //-   |                                                             
+                          //-   option(value='MN') Minnesota
+                          //-   |                                                             
+                          //-   option(value='MS') Mississippi
+                          //-   |                                                             
+                          //-   option(value='MO') Missouri
+                          //-   |                                                             
+                          //-   option(value='OK') Oklahoma
+                          //-   |                                                             
+                          //-   option(value='SD') South Dakota
+                          //-   |                                                             
+                          //-   option(value='TX') Texas
+                          //-   |                                                             
+                          //-   option(value='TN') Tennessee
+                          //-   |                                                             
+                          //-   option(value='WI') Wisconsin
+                          //- |                                                         
+                          //- optgroup(label='Eastern Time Zone')
+                          //-   option(value='CT') Connecticut
+                          //-   |                                                             
+                          //-   option(value='DE') Delaware
+                          //-   |                                                             
+                          //-   option(value='FL') Florida
+                          //-   |                                                             
+                          //-   option(value='GA') Georgia
+                          //-   |                                                             
+                          //-   option(value='IN') Indiana
+                          //-   |                                                             
+                          //-   option(value='ME') Maine
+                          //-   |                                                             
+                          //-   option(value='MD') Maryland
+                          //-   |                                                             
+                          //-   option(value='MA') Massachusetts
+                          //-   |                                                             
+                          //-   option(value='MI') Michigan
+                          //-   |                                                             
+                          //-   option(value='NH') New Hampshire
+                          //-   |                                                             
+                          //-   option(value='NJ') New Jersey
+                          //-   |                                                             
+                          //-   option(value='NY') New York
+                          //-   |                                                             
+                          //-   option(value='NC') North Carolina
+                          //-   |                                                             
+                          //-   option(value='OH') Ohio
+                          //-   |                                                             
+                          //-   option(value='PA') Pennsylvania
+                          //-   |                                                             
+                          //-   option(value='RI') Rhode Island
+                          //-   |                                                             
+                          //-   option(value='SC') South Carolina
+                          //-   |                                                             
+                          //-   option(value='VT') Vermont
+                          //-   |                                                             
+                          //-   option(value='VA') Virginia
+                          //-   |                                                             
+                          //-   option(value='WV') West Virginia
+
+                      |                                                         
+                      .col-lg-4.col-md-4.col-sm-4.col-xs-10
+                        .input-group
+                          span.input-group-addon
+                            i.fa.fa-calendar
+                          |                                                         
+                          input#basic-datepicker.form-control(type='text')
+                      .col-lg-3.col-md-3.col-sm-3.col-xs-10
+                        .input-group.bootstrap-timepicker
+                          span.input-group-addon
+                            i.fa.fa-clock-o
+                          |                                                         
+                          input#default-timepicker.form-control(type='text')
+                    // End .row
+
+                .form-group
+                  label.col-lg-2.col-md-3.control-label Last Name
+                  |                                                             
+                  .col-lg-10.col-md-9
+                    input.form-control(name='lastname', type='text')
+                // End .control-group
+              |                                                     
+              #tab5.tab-pane
+                .form-group
+                  label.col-lg-2.col-md-3.control-label Email
+                  |                                                             
+                  .col-lg-10.col-md-9
+                    input.form-control(name='email', type='email')
+                // End .control-group
+                .form-group
+                  label.col-lg-2.col-md-3.control-label Phone number
+                  |                                                             
+                  .col-lg-10.col-md-9
+                    input.form-control(name='phone', type='text')
+                // End .control-group
+              |                                                     
+              #tab6.tab-pane
+                .form-group
+                  label.col-lg-2.col-md-3.control-label Username
+                  |                                                             
+                  .col-lg-10.col-md-9
+                    input.form-control(name='username', type='text')
+                // End .control-group
+                .form-group
+                  label.col-lg-2.col-md-3.control-label Password
+                  |                                                             
+                  .col-lg-10.col-md-9
+                    input.form-control(name='password', type='password')
+                // End .control-group
+                .form-group
+                  label.col-lg-2.col-md-3.control-label Re-type password
+                  |                                                             
+                  .col-lg-10.col-md-9
+                    input.form-control(name='password_2', type='password')
+                // End .control-group
+          |                                             
+          ul.pager
+            li.previous.disabled
+              a(href='#') &larr; Back
+            |                                                 
+            li.next(style='display: inline;')
+              a(href='#') Next &rarr;
+            |                                                 
+            li.next.finish(style='display: none;')
+              a(href='#') Finish
+        // End .bwizard
+    // End .panel

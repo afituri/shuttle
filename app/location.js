@@ -31,6 +31,21 @@ exports.locationMgr = {
     });
   },
 
+  getCity : function(term,cb){
+    term = term+"%";
+    mysqlMgr.connect(function (conn) {
+      conn.query('SELECT  `location`.`local_name` AS lname,`country`.`local_name` AS country FROM `location`,`country` WHERE `location`.`local_name` LIKE ? AND (`location`.`type` = "CI" OR `location`.`type` = "RE") AND ( LEFT(`location`.`iso`,2) = `country`.`iso` OR LEFT(`location`.`iso`,5) = `country`.`iso`) limit 10', term, function(err, rows, fields) {
+      conn.release();
+      if (err) throw err;
+        var data=[];
+        for(i=0;i<rows.length;i++){
+            data.push(rows[i].lname+"-"+rows[i].country);
+        }
+        cb(JSON.stringify(data));
+      });
+    });
+  },
+
   getUsCities : function(state,cb){
     console.log(state);
     state ="%US-"+state+"%";

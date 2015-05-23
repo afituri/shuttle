@@ -1,11 +1,20 @@
 var express = require('express');
 var router = express.Router();
 var travelerMgr = require('../app/traveler').travelerMgr;
+var locationMgr = require('../app/location').locationMgr;
 var helpers = require('../app/helpers');
 var login = require('../app/login')(router);
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('index', { title: 'Express',login : true });
+});
+
+router.get('/getCity/search', function(req, res) {
+  //console.log(req.query.key);
+  locationMgr.getCity(req.query.key,function(result){
+    res.send(result);
+  })
+  //console.log(req.query.term);
 });
 
 router.get('/showing_trips', function(req, res) {
@@ -34,6 +43,11 @@ router.post('/register', function(req, res) {
 /* GET login page. */
 router.get('/login', function(req, res) {
   res.render('login', { title: 'Express' });
+});
+
+/* New Trip page. */
+router.get('/newTrip', function(req, res) {
+  res.render('newTrip', { title: 'Shuttle.LY | New Trip' });
 });
 
 module.exports = router;

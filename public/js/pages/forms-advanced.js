@@ -38,11 +38,37 @@ $(document).ready(function() {
 	//------------- Select 2 -------------//
 	$('.select2').select2({placeholder: 'Select state'});
 
+  $('input.typeahead').typeahead({
+        name: 'typeahead',
+        remote: '/getCity/search?key=%QUERY',  
+        limit: 10,
+        minLength: 2
+    });
 	//minumum 2 symbols input
-	$('.select2-minimum').select2({
-		placeholder: 'Select state',
-		minimumInputLength: 2,
-	});
+	// $('#getCity').select2({
+ //    ajax: {
+ //      url: "/getCity/",
+ //      dataType: 'json',
+ //      delay: 250,
+ //      data: function (term) {
+ //        return {
+ //          term: term
+ //        };
+ //      },
+ //      processResults: function (data, page) {
+ //        // parse the results into the format expected by Select2.
+ //        // since we are using custom formatting functions we do not need to
+ //        // alter the remote JSON data
+ //        return {
+ //          results: data.items
+ //        };
+ //      },
+ //      cache: true
+ //    },
+ //    escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+ //    minimumInputLength: 2,
+    
+ //  });
 
 	//------------- Masked input fields -------------//
 	$("#mask-phone").mask("(999) 999-9999", {completed:function(){alert("Callback action after complete");}});
@@ -62,115 +88,115 @@ $(document).ready(function() {
 	    moveOnSelect: false,
 	});
 
-	//------------- Spinners -------------//
-	$("#basic-spinner").TouchSpin({
-        min: 0,
-        max: 100
-    });
-    //with postfix
-    $("#postfix-spinner").TouchSpin({
-        min: 0,
-        max: 100,
-        postfix: '%'
-    });
-    //with prefix
-    $("#prefix-spinner").TouchSpin({
-        min: 0,
-        max: 100,
-        prefix: '$'
-    });
-    //decimal spinner
-    $("#decimal-spinner").TouchSpin({
-        min: 1,
-        max: 10,
-        step: 0.1,
-        decimals: 2
-    });
-    //vertical buttons
-    $("#vertical-spinner").TouchSpin({
-        verticalbuttons: true,
-        verticalupclass: 'fa fa-angle-up s12',
-        verticaldownclass: 'fa fa-angle-down s12'
-    });
+	// //------------- Spinners -------------//
+	// $("#basic-spinner").TouchSpin({
+ //        min: 0,
+ //        max: 100
+ //    });
+ //    //with postfix
+ //    $("#postfix-spinner").TouchSpin({
+ //        min: 0,
+ //        max: 100,
+ //        postfix: '%'
+ //    });
+ //    //with prefix
+ //    $("#prefix-spinner").TouchSpin({
+ //        min: 0,
+ //        max: 100,
+ //        prefix: '$'
+ //    });
+ //    //decimal spinner
+ //    $("#decimal-spinner").TouchSpin({
+ //        min: 1,
+ //        max: 10,
+ //        step: 0.1,
+ //        decimals: 2
+ //    });
+    // //vertical buttons
+    // $("#vertical-spinner").TouchSpin({
+    //     verticalbuttons: true,
+    //     verticalupclass: 'fa fa-angle-up s12',
+    //     verticaldownclass: 'fa fa-angle-down s12'
+    // });
 
     //------------- Datepicker -------------//
     $("#basic-datepicker").datepicker();
-    //multiple date
-    $("#multiple-datepicker").datepicker({
-    	multidate: true
-    });
-    //date range
-    $(".input-daterange").datepicker();
-    //inline
-    $("#inline-datepicker").datepicker();
+    // //multiple date
+    // $("#multiple-datepicker").datepicker({
+    // 	multidate: true
+    // });
+    // //date range
+    // $(".input-daterange").datepicker();
+    // //inline
+    // $("#inline-datepicker").datepicker();
 
     //------------- Timepicker -------------//
     $('#default-timepicker').timepicker({
     	upArrowStyle: 'fa fa-angle-up',
     	downArrowStyle: 'fa fa-angle-down',
     });
-    //custom time
-    $('#customtime-timepicker').timepicker({
-    	upArrowStyle: 'fa fa-angle-up',
-    	downArrowStyle: 'fa fa-angle-down',
-    	defaultTime: '22:45 AM'
-    });
-    //custom minute step
-    $('#minute-step-timepicker').timepicker({
-    	upArrowStyle: 'fa fa-angle-up',
-    	downArrowStyle: 'fa fa-angle-down',
-    	minuteStep: 30
-    });
-    //show seconds
-    $('#show-seconds-timepicker').timepicker({
-    	upArrowStyle: 'fa fa-angle-up',
-    	downArrowStyle: 'fa fa-angle-down',
-    	showSeconds: true
-    });
+    // //custom time
+    // $('#customtime-timepicker').timepicker({
+    // 	upArrowStyle: 'fa fa-angle-up',
+    // 	downArrowStyle: 'fa fa-angle-down',
+    // 	defaultTime: '22:45 AM'
+    // });
+    // //custom minute step
+    // $('#minute-step-timepicker').timepicker({
+    // 	upArrowStyle: 'fa fa-angle-up',
+    // 	downArrowStyle: 'fa fa-angle-down',
+    // 	minuteStep: 30
+    // });
+    // //show seconds
+    // $('#show-seconds-timepicker').timepicker({
+    // 	upArrowStyle: 'fa fa-angle-up',
+    // 	downArrowStyle: 'fa fa-angle-down',
+    // 	showSeconds: true
+    // });
 
-    //------------- Colorpicker -------------//
-    $('#default-colorpicker').colorpicker();
-    //as component
-    $('#component-colorpicker').colorpicker({
-    	color: '#1fba5d'
-    });
-    //horizontal
-    $('#horizontal-colorpicker').colorpicker({
-    	horizontal: true
-    });
-    //inline
-     $('#inline-colorpicker').colorpicker({
-    	inline: true,
-    	container: '.inline-picker'
-    });
+    // //------------- Colorpicker -------------//
+    // $('#default-colorpicker').colorpicker();
+    // //as component
+    // $('#component-colorpicker').colorpicker({
+    // 	color: '#1fba5d'
+    // });
+    // //horizontal
+    // $('#horizontal-colorpicker').colorpicker({
+    // 	horizontal: true
+    // });
+    // //inline
+    //  $('#inline-colorpicker').colorpicker({
+    // 	inline: true,
+    // 	container: '.inline-picker'
+    // });
 
     //------------- Tags -------------//
     //from json
-    var citynames = new Bloodhound({
-	  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-	  queryTokenizer: Bloodhound.tokenizers.whitespace,
-	  prefetch: {
-	    url: 'ajax/citynames.json',
-	    filter: function(list) {
-	      return $.map(list, function(cityname) {
-	        return { name: cityname }; });
-	    }
-	  }
-	});
-	citynames.initialize();
+ //    var citynames = new Bloodhound({
+	//   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+	//   queryTokenizer: Bloodhound.tokenizers.whitespace,
+	//   prefetch: {
+	//     url: 'ajax/citynames.json',
+	//     filter: function(list) {
+	//       return $.map(list, function(cityname) {
+	//         return { name: cityname }; });
+	//     }
+	//   }
+	// });
+	// citynames.initialize();
 
-	$('#json-tags').tagsinput({
-		typeaheadjs: {
-			name: 'citynames',
-			displayKey: 'name',
-			valueKey: 'name',
-			source: citynames.ttAdapter()
-		}
-	});
+	// $('#json-tags').tagsinput({
+	// 	typeaheadjs: {
+	// 		name: 'citynames',
+	// 		displayKey: 'name',
+	// 		valueKey: 'name',
+	// 		source: citynames.ttAdapter()
+	// 	}
+	// });
 
-    //------------- WYSIWYG summernote -------------//
-    $('#summernote').summernote({
-        height: 200
-    });
+ //    //------------- WYSIWYG summernote -------------//
+ //    $('#summernote').summernote({
+ //        height: 200
+ //    });
 
 });
