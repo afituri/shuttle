@@ -36,14 +36,48 @@ $(document).ready(function() {
     });
 
 	//------------- Select 2 -------------//
-	$('.select2').select2({placeholder: 'Select state'});
+	$('#country').select2({placeholder: 'Select state'});
+  $('#cities').select2({placeholder: 'Select state'});
 
-  $('input.typeahead').typeahead({
-        name: 'typeahead',
-        remote: '/getCity/search?key=%QUERY',  
-        limit: 10,
-        minLength: 2
-    });
+   $('#country').on('change', function() {
+    $.get('/getCities/'+$('#country').val(),function(result){
+      var cities=$("#cities").select2();
+      cities.empty();
+      cities.append($("<option/>").text('Chose your city'));
+      for (city in result){
+        cities.append($("<option/>").val(result[city].id).text(result[city].local_name));
+      }
+      
+    }) 
+  });
+
+  // $('input.typeahead').typeahead({
+  //       name: 'typeahead',
+  //       remote: {
+  //         url: '/getCity/search?key=%QUERY',
+  //         filter: function(list) {
+  //           return $.map(list, function(search) {
+  //               return {
+  //                   name: sear
+  //               };
+  //           });
+  //       }
+  //       display : 'name',
+  //       limit: 10,
+  //       hint: true,
+  //       highlight: true,
+  //       minLength: 2
+  //       // templates: {
+  //       //     suggestion: function (data) {
+  //       //       console.log(data);
+  //       //         return '<p><strong>' + data.name + '</strong> - ' + data.id + '</p>';
+  //       //     }
+  //       // }
+  //   });
+//   $('input.typeahead').bind('typeahead:selected', function(obj, datum, name) {
+//   console.log($('.typeahead').val());
+// });
+
 	//minumum 2 symbols input
 	// $('#getCity').select2({
  //    ajax: {

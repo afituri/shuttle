@@ -64,7 +64,20 @@ router.get('/login', function(req, res) {
 
 /* New Trip page. */
 router.get('/newTrip', function(req, res) {
-  res.render('newTrip', { title: 'Shuttle.LY | New Trip' });
+  locationMgr.getCountries(function(result){
+    console.log(result);
+    res.render('newTrip', { title: 'Shuttle.LY | New Trip',countries:result});
+  });
+  
+});
+
+router.get('/getCities/:iso', function(req, res) {
+  locationMgr.getCities(req.params.iso,function(result){
+    //console.log(result);
+    res.send(result);
+    //res.render('newTrip', { title: 'Shuttle.LY | New Trip',countries:result});
+  });
+  
 });
 
 module.exports = router;
