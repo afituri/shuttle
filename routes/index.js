@@ -65,19 +65,22 @@ router.get('/login', function(req, res) {
 /* New Trip page. */
 router.get('/newTrip', function(req, res) {
   locationMgr.getCountries(function(result){
-    console.log(result);
     res.render('newTrip', { title: 'Shuttle.LY | New Trip',countries:result});
   });
   
 });
 
-router.get('/getCities/:iso', function(req, res) {
-  locationMgr.getCities(req.params.iso,function(result){
-    //console.log(result);
+router.get('/getCities/:iso/:state', function(req, res) {
+  console.log(req.params.iso);
+  locationMgr.getCities(req.params.iso,req.params.state,function(result){
     res.send(result);
-    //res.render('newTrip', { title: 'Shuttle.LY | New Trip',countries:result});
   });
-  
+});
+
+router.get('/getStates/:iso', function(req, res) {
+  locationMgr.getStates(req.params.iso,function(result){
+    res.send(result);
+  });
 });
 
 module.exports = router;

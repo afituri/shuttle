@@ -36,20 +36,57 @@ $(document).ready(function() {
     });
 
 	//------------- Select 2 -------------//
-	$('#country').select2({placeholder: 'Select state'});
-  $('#cities').select2({placeholder: 'Select state'});
+	$('#countries').select2({placeholder: 'Select a Country'});
+  $('#states').select2({placeholder: 'Select a state'});
+  $('#cities').select2({placeholder: 'Select a city'});
 
-   $('#country').on('change', function() {
-    $.get('/getCities/'+$('#country').val(),function(result){
-      var cities=$("#cities").select2();
-      cities.empty();
-      cities.append($("<option/>").text('Chose your city'));
-      for (city in result){
-        cities.append($("<option/>").val(result[city].id).text(result[city].local_name));
-      }
-      
-    }) 
+  $('#countries2').select2({placeholder: 'Select a Country'});
+  $('#states2').select2({placeholder: 'Select a state'});
+  $('#cities2').select2({placeholder: 'Select a city'});
+
+  $('#countries').on('change', function() {
+    var iso= $('#countries').val(),
+        states = $("#states").select2();
+        cities = $("#cities").select2();
+        cities.empty();
+    getStates(iso,states); 
   });
+
+  $('#states').on('change', function() {
+    var state= $('#states').val(),
+        iso= $('#countries').val(),
+        cities = $("#cities").select2();
+    getCities(iso,state,cities); 
+  });
+
+  function getStates(iso,states){
+    states.empty();
+    $.get('/getStates/'+iso,function(result){
+      initSelect2Input("#states",result);
+    });
+  }
+
+  function getCities(iso,state,cities){
+    cities.empty();
+    $.get('/getCities/'+iso+'/'+state,function(result){
+      initSelect2Input("#cities",result);
+    });
+  }
+
+  function initSelect2Input(selection,data){
+   $(selection).select2({
+      placeholder: "Select report type",
+      allowClear: false,
+      data:data
+   });
+  }
+
+  // // init for first data source
+  // initSelect2Input(data1);
+  // // destroy for new data soruce init!
+  // $('#select2InputId').select2('destroy');
+  // // init for secound data source
+  // initSelect2Input(data2);
 
   // $('input.typeahead').typeahead({
   //       name: 'typeahead',
@@ -155,6 +192,7 @@ $(document).ready(function() {
 
     //------------- Datepicker -------------//
     $("#basic-datepicker").datepicker();
+    $("#basic-datepicker2").datepicker();
     // //multiple date
     // $("#multiple-datepicker").datepicker({
     // 	multidate: true
@@ -168,6 +206,10 @@ $(document).ready(function() {
     $('#default-timepicker').timepicker({
     	upArrowStyle: 'fa fa-angle-up',
     	downArrowStyle: 'fa fa-angle-down',
+    });
+    $('#default-timepicker2').timepicker({
+      upArrowStyle: 'fa fa-angle-up',
+      downArrowStyle: 'fa fa-angle-down',
     });
     // //custom time
     // $('#customtime-timepicker').timepicker({

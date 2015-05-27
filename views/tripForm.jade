@@ -6,7 +6,7 @@
       .panel-heading
         h4.panel-title
           i.fa.fa-magic
-          |  Form wizard with progressbar
+          |  List your new trip
         |                                     
         .panel-controls.panel-controls-right
           a.panel-refresh(href='#')
@@ -24,7 +24,7 @@
               a(href='#tab4', data-toggle='tab', aria-expanded='true')
                 span.step-number 1
                 |                                                         
-                span.step-text Personal Info
+                span.step-text Trip Info
             |                                                 
             li
               a(href='#tab5', data-toggle='tab', aria-expanded='false')
@@ -36,7 +36,7 @@
               a(href='#tab6', data-toggle='tab', aria-expanded='false')
                 span.step-number 3
                 |                                                         
-                span.step-text Account Info
+                span.step-text Notes
           |                                             
           .wizard-progress
             #bar.progress
@@ -46,39 +46,67 @@
             .tab-content
               #tab4.tab-pane.active
                 .form-group
-                  label.col-lg-2.col-md-2.control-label From City
+                  label.col-lg-2.col-md-2.control-label From Location
                   |  
                   .col-lg-10
                     .row
                       // Start .row
-                      .col-lg-4.col-md-4.col-sm-4.col-xs-10
-                        select#country.form-control.select2
+                      .col-lg-3.col-md-3.col-sm-3.col-xs-12
+                        select#countries.form-control.select2
                           for val in countries
                             option(value='#{val.iso}') #{val.local_name}
-                      .col-lg-4.col-md-4.col-sm-4.col-xs-10
+                      .col-lg-3.col-md-3.col-sm-3.col-xs-12
+                        select#states.form-control.select2                                                         
+                      .col-lg-3.col-md-3.col-sm-3.col-xs-12
                         select#cities.form-control.select2
-
-
-                      //- |                                                         
-                      //- .col-lg-4.col-md-4.col-sm-4.col-xs-10
-                      //-   .input-group
-                      //-     span.input-group-addon
-                      //-       i.fa.fa-calendar
-                      //-     |                                                         
-                          input#basic-datepicker.form-control(type='text')
-                      .col-lg-3.col-md-3.col-sm-3.col-xs-10
-                        .input-group.bootstrap-timepicker
-                          span.input-group-addon
-                            i.fa.fa-clock-o
-                          |                                                         
-                          input#default-timepicker.form-control(type='text')
                     // End .row
 
                 .form-group
-                  label.col-lg-2.col-md-3.control-label Last Name
+                  label.col-lg-2.col-md-2.control-label Departure Time
                   |                                                             
-                  .col-lg-10.col-md-9
-                    input.form-control(name='lastname', type='text')
+                  .col-lg-3.col-md-3.col-sm-3.col-xs-10
+                    .input-group
+                      span.input-group-addon
+                        i.fa.fa-calendar
+                      input#basic-datepicker.form-control(type='text')
+                  
+                  .col-lg-3.col-md-3.col-sm-3.col-xs-12
+                    .input-group.bootstrap-timepicker
+                      span.input-group-addon
+                        i.fa.fa-clock-o
+                      input#default-timepicker.form-control(type='text')  
+                hr  
+                .form-group
+                  label.col-lg-2.col-md-2.control-label To Location
+                  |  
+                  .col-lg-10
+                    .row
+                      // Start .row
+                      .col-lg-3.col-md-3.col-sm-3.col-xs-12
+                        select#countries2.form-control.select2
+                          for val in countries
+                            option(value='#{val.iso}') #{val.local_name}
+                      .col-lg-3.col-md-3.col-sm-3.col-xs-12
+                        select#states2.form-control.select2                                                         
+                      .col-lg-3.col-md-3.col-sm-3.col-xs-12
+                        select#cities2.form-control.select2
+                    // End .row
+
+                .form-group
+                  label.col-lg-2.col-md-2.control-label Arrival  Time
+                  |                                                             
+                  .col-lg-3.col-md-3.col-sm-3.col-xs-10
+                    .input-group
+                      span.input-group-addon
+                        i.fa.fa-calendar
+                      input#basic-datepicker2.form-control(type='text')
+                  
+                  .col-lg-3.col-md-3.col-sm-3.col-xs-12
+                    .input-group.bootstrap-timepicker
+                      span.input-group-addon
+                        i.fa.fa-clock-o
+                      input#default-timepicker2.form-control(type='text')                                                         
+
                 // End .control-group
               |                                                     
               #tab5.tab-pane

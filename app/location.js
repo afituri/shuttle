@@ -6,7 +6,7 @@ exports.locationMgr = {
 
   getCountries : function(cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT `id`,`iso`, `local_name` FROM `country` WHERE `type` = "CO" ORDER BY `local_name`',  function(err, result) {
+      conn.query('SELECT  `country_code` AS iso,`country` AS local_name FROM citydb GROUP BY `country`',  function(err, result) {
         conn.release();
         if(err) {
           util.log(err);
@@ -16,11 +16,22 @@ exports.locationMgr = {
       });
     });
   },
-  getCities : function(iso,cb){
+  getStates : function(iso,cb){
     console.log(iso);
-    iso+="%";
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT `id`, `local_name` FROM `location` WHERE `iso` LIKE ?   ORDER BY `local_name`', iso, function(err, result) {
+      conn.query('SELECT `state_code` as id,`states` as text FROM citydb WHERE `country_code` = ? GROUP BY `states` ',[iso] , function(err, result) {
+        conn.release();
+        if(err) {
+          util.log(err);
+        } else {
+          cb(result);
+        }
+      });
+    });
+  },
+  getCities : function(iso,state,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('SELECT `id`,`city_name_ascii` AS text FROM citydb WHERE `country_code` = ? AND `state_code` = ? GROUP BY `city_name_ascii`', [iso,state], function(err, result) {
         conn.release();
         if(err) {
           util.log(err);
