@@ -45,31 +45,51 @@ $(document).ready(function() {
   $('#cities2').select2({placeholder: 'Select a city'});
 
   $('#countries').on('change', function() {
-    var iso= $('#countries').val(),
-        states = $("#states").select2();
-        cities = $("#cities").select2();
-        cities.empty();
-    getStates(iso,states); 
+    doStates('#countries','#states','#cities');
   });
+  
+  $('#countries2').on('change', function() {
+    doStates('#countries2','#states2','#cities2');
+  });
+  
+  function doStates(countriesId,statesId,citiesId){
+    var iso= $(countriesId).val(),
+        states = $(statesId).select2(),
+        cities = $(citiesId).select2();
+    states.empty();
+    cities.empty();
+    getStates(iso,states,statesId,citiesId); 
+  }
 
   $('#states').on('change', function() {
-    var state= $('#states').val(),
-        iso= $('#countries').val(),
-        cities = $("#cities").select2();
-    getCities(iso,state,cities); 
+    doCities('#countries','#states','#cities')
   });
+  
+  $('#states2').on('change', function() {
+    doCities('#countries2','#states2','#cities2')
+  });
+  
+  function doCities(countriesId,statesId,citiesId){
+    var state= $(statesId).val(),
+        iso= $(countriesId).val(),
+        cities = $(citiesId).select2();
+    cities.empty();
+    getCities(iso,state,cities,citiesId); 
+  }
 
-  function getStates(iso,states){
-    states.empty();
+
+  function getStates(iso,states,statesId,citiesId){
     $.get('/getStates/'+iso,function(result){
-      initSelect2Input("#states",result);
+      initSelect2Input(statesId,result);
+      var state= $(statesId).val(),
+          cities = $(citiesId).select2();
+      getCities(iso,state,cities,citiesId);
     });
   }
 
-  function getCities(iso,state,cities){
-    cities.empty();
+  function getCities(iso,state,cities,citiesId){
     $.get('/getCities/'+iso+'/'+state,function(result){
-      initSelect2Input("#cities",result);
+      initSelect2Input(citiesId,result);
     });
   }
 
