@@ -1,5 +1,21 @@
 //------------- forms-advanced.js -------------//
 $(document).ready(function() {
+  $.fn.serializeObject = function()
+  {
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+      if (o[this.name] !== undefined) {
+        if (!o[this.name].push) {
+          o[this.name] = [o[this.name]];
+        }
+        o[this.name].push(this.value || '');
+      } else {
+        o[this.name] = this.value || '';
+      }
+    });
+    return o;
+  };
 
 	//------------- Sparklines in header stats -------------//
     $('#spark-visitors').sparkline([5,8,10,8,7,12,11,6,13,8,5,8,10,11,7,12,11,6,13,8], {
@@ -101,6 +117,23 @@ $(document).ready(function() {
    });
   }
 
+  /*Submit Form*/
+  $('#listTrip').on('click', function(e) {
+    e.preventDefault();
+    $('#tripForm').submit();
+  });
+
+  $("#tripForm").submit(function(e) {
+    e.preventDefault();
+    console.log($("#tripForm").serializeObject());
+    // var isvalidate=$("#tripForm").valid();
+    //   if(isvalidate){
+    //     $.post("/newTrip", $("#tripForm").serializeObject(), function(data, error){
+    //       console.log(data);
+    //     });
+    //   }
+  });
+
   // // init for first data source
   // initSelect2Input(data1);
   // // destroy for new data soruce init!
@@ -162,9 +195,9 @@ $(document).ready(function() {
  //  });
 
 	//------------- Masked input fields -------------//
-	$("#mask-phone").mask("(999) 999-9999", {completed:function(){alert("Callback action after complete");}});
+	$("#mask-phone").mask("(999) 999-9999");
 	$("#mask-phoneExt").mask("(999) 999-9999? x99999");
-	$("#mask-phoneInt").mask("+40 999 999 999");
+	$("#mask-phoneInt").mask("+99 999 999 9999");
 	$("#mask-date").mask("99/99/9999");
 	$("#mask-ssn").mask("999-99-9999");
 	$("#mask-productKey").mask("a*-999-a999", { placeholder: "*" });

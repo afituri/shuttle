@@ -42,7 +42,7 @@
             #bar.progress
               .progress-bar(style='width: 33.3333333333333%;')
           |                                             
-          form.form-horizontal(role='form')
+          form#tripForm.form-horizontal(role='form')
             .tab-content
               #tab4.tab-pane.active
                 .form-group
@@ -111,36 +111,70 @@
               |                                                     
               #tab5.tab-pane
                 .form-group
-                  label.col-lg-2.col-md-3.control-label Email
+                  label.col-lg-2.col-md-3.control-label How are you traveling? 
                   |                                                             
                   .col-lg-10.col-md-9
-                    input.form-control(name='email', type='email')
+                    select.fancy-select1.form-control
+                      option(data-icon='fa fa-automobile', value='Driving') Driving
+                      option(data-icon='fa fa-plane', value='Flying') Flying
+                      
+                      
                 // End .control-group
                 .form-group
-                  label.col-lg-2.col-md-3.control-label Phone number
+                  label.col-lg-2.col-md-3.control-label What services are you providing?
                   |                                                             
                   .col-lg-10.col-md-9
-                    input.form-control(name='phone', type='text')
+                    .toggle-custom.toggle-inline
+                      label.toggle(data-on='ON', data-off='OFF')
+                        input#radio-toggle3(type='radio', name='transportation', checked='',value=1)
+                        |                                                             
+                        span.button-radio
+                      |                                                         
+                      label(for='radio-toggle3') Package delivery
+                    |                                                     
+                    .toggle-custom.toggle-inline
+                      label.toggle(data-on='ON', data-off='OFF')
+                        input#radio-toggle4(type='radio', name='transportation', value=2)
+                        |                                                             
+                        span.button-radio
+                      |                                                         
+                      label(for='radio-toggle4') Ride share
+                    |                                                     
+                    .toggle-custom.toggle-inline
+                      label.toggle(data-on='ON', data-off='OFF')
+                        input#radio-toggle5(type='radio', name='transportation',value=3)
+                        |                                                             
+                        span.button-radio
+                      |                                                         
+                      label(for='radio-toggle5') Both
+
                 // End .control-group
               |                                                     
               #tab6.tab-pane
                 .form-group
-                  label.col-lg-2.col-md-3.control-label Username
+                  label.col-lg-2.col-md-3.control-label Phone#
                   |                                                             
                   .col-lg-10.col-md-9
-                    input.form-control(name='username', type='text')
+                    .input-group.input-icon
+                      span.input-group-addon
+                        i.fa.fa-phone.s16
+                      input.form-control(type='text', placeholder='+99 999 999 9999')
+                .form-group
+                  label.col-lg-2.col-md-3.control-label Email
+                  |                                                             
+                  .col-lg-10.col-md-9
+                    .input-group.input-icon
+                      span.input-group-addon
+                        i.fa.fa-envelope
+                      input.form-control(type='text', placeholder='example@email.com')
+
                 // End .control-group
                 .form-group
-                  label.col-lg-2.col-md-3.control-label Password
+                  label.col-lg-2.col-md-3.control-label Notes
                   |                                                             
                   .col-lg-10.col-md-9
-                    input.form-control(name='password', type='password')
-                // End .control-group
-                .form-group
-                  label.col-lg-2.col-md-3.control-label Re-type password
-                  |                                                             
-                  .col-lg-10.col-md-9
-                    input.form-control(name='password_2', type='password')
+                    textarea.form-control.icon-textarea(rows='3')
+                    i.fa.fa-comments.textarea-icon.s16
                 // End .control-group
           |                                             
           ul.pager
@@ -151,6 +185,6 @@
               a(href='#') Next &rarr;
             |                                                 
             li.next.finish(style='display: none;')
-              a(href='#') Finish
+              a#listTrip(href='#') Finish
         // End .bwizard
     // End .panel
